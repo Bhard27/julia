@@ -410,7 +410,7 @@ end
 end
 
 @testset "complicated kwargs logging macro" begin
-    @test_logs (:warn, "foo")  @warn "foo" argvals=:((DoNotCare{$(Expr(:escape, :Any))}(),))
+    @test_logs (:warn, "foo")  @warn "foo" argvals=:(some_nontrivial_quoted_expr(x))
 end
 
 end
